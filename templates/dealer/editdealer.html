@@ -1,0 +1,203 @@
+{% extends 'dealer/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/edit_dealer_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table width="625" border="1" align="center" class="text-white table-bordered" >
+    <tr >
+      <th width="178" scope="row">Personal name</th>
+      <td width="431"><label for="textfield"></label>
+      <input type="text" name="textfield" value="{{ data.Dealer_name }}" id="textfield" required/></td>
+    </tr>
+{#    <tr>#}
+{#      <th scope="row">Age</th>#}
+{#      <td><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" value="{{ data.age }}" id="textfield2" style="background-color: transparent ;border: gold !important;"/></td>#}
+{#    </tr>#}
+    <tr>
+      <th scope="row">D.O.B</th>
+      <td><label for="textfield3"></label>
+      <input type="date" name="textfield3" value="{{ data.dob }}" id="textfield3" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td><label for="textfield4"></label>
+      <input type="email" name="textfield4" value="{{ data.email }}" id="textfield4" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><label for="textfield5"></label>
+      <input type="number" name="textfield5" value="{{ data.phone }}" id="textfield5" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Business name</th>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" value="{{ data.business_name }}" id="textfield6" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Type of business</th>
+      <td>      <p>
+        <label class="text-white">
+          <input type="radio" name="RadioGroup1" {% if data.business_type == 'Solo Partnership' %} checked{% endif %} value="Solo Partnership" id="RadioGroup1_0" />
+           Solo propertiship
+        </label>
+        <br />
+        <label class="text-white">
+          <input type="radio" name="RadioGroup1" {% if data.business_type == 'Partnership' %} checked{% endif %}  value="Partnership" id="RadioGroup1_1" />Partnership</label>
+        <br />
+        <label class="text-white">
+          <input type="radio" name="RadioGroup1" {% if data.business_type == 'Co-Operative' %} checked{% endif %} value="Co-Operative" id="RadioGroup1_2" />
+          Co-Operation
+        </label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <th scope="row">address</th>
+      <td><p >Building,Company
+        <label for="textarea2"></label>
+      <label for="textfield5"></label>
+      <input type="text" name="textfield7" value="{{ data.building }}" id="textfield7" required/>
+    </p>
+      <p>Landmark
+        <label for="textfield6"></label>
+        <input type="text" name="textfield8" value="{{ data.landmark }}" id="textfield8" required />
+      </p>
+      <p>Town/Street
+        <label for="textfield4"></label>
+        <input type="text" name="textfield9" value="{{ data.town }}" id="textfield9" required />
+      </p>
+      <p>Pincode
+        <label for="textfield7"></label>
+        <input type="text" name="textfield10" value="{{ data.pincode }}" id="textfield10" required />
+      </p>
+      <p>State
+      	<label for="select"></label>
+        <select name="select" id="select">
+          <option {% if data.state == 'Andhra Pradesh'%}selected{% endif %}>Andhra Pradesh</option>
+          <option {% if data.state == 'Arunachal Pradesh'%}selected{% endif %}>Arunachal Pradesh</option>
+          <option {% if data.state == 'Assam'%}selected{% endif %}>Assam</option>
+          <option {% if data.state == 'Bihar '%}selected{% endif %}>Bihar</option>
+          <option {% if data.state == 'Chhattisgarh'%}selected{% endif %}>Chhattisgarh</option>
+          <option {% if data.state == 'Goa'%}selected{% endif %}>Goa</option>
+          <option {% if data.state == 'Gujarat'%}selected{% endif %}>Gujarat</option>
+          <option {% if data.state == 'Haryana'%}selected{% endif %}>Haryana</option>
+          <option {% if data.state == 'Himachal Pradesh'%}selected{% endif %}>Himachal Pradesh</option>
+          <option {% if data.state == 'Jharkhand'%}selected{% endif %}>Jharkhand</option>
+          <option {% if data.state == 'Karnataka'%}selected{% endif %}>Karnataka</option>
+          <option {% if data.state == 'Kerala'%}selected{% endif %}>Kerala</option>
+          <option {% if data.state == 'Madhya Pradesh'%}selected{% endif %}>Madhya Pradesh</option>
+          <option {% if data.state == 'Maharashtra'%}selected{% endif %}>Maharashtra</option>
+          <option {% if data.state == 'Manipur'%}selected{% endif %}>Manipur</option>
+          <option {% if data.state == 'Meghalaya'%}selected{% endif %}>Meghalaya</option>
+          <option {% if data.state == 'Mizoram'%}selected{% endif %}>Mizoram</option>
+          <option {% if data.state == 'Nagaland'%}selected{% endif %}>Nagaland</option>
+          <option {% if data.state == 'Odisha'%}selected{% endif %}>Odisha</option>
+          <option {% if data.state == 'Punjab'%}selected{% endif %}>Punjab</option>
+          <option {% if data.state == 'Rajasthan'%}selected{% endif %}>Rajasthan</option>
+          <option {% if data.state == 'Sikkim'%}selected{% endif %}>Sikkim</option>
+          <option {% if data.state == 'Tamil Nadu'%}selected{% endif %}>Tamil Nadu</option>
+          <option {% if data.state == 'Telangana'%}selected{% endif %}>Telangana</option>
+          <option {% if data.state == 'Tripura'%}selected{% endif %}>Tripura</option>
+          <option {% if data.state == 'Uttar Pradesh'%}selected{% endif %}>Uttar Pradesh</option>
+          <option {% if data.state == 'Uttarakhand'%}selected{% endif %}>Uttarakhand</option>
+          <option {% if data.state == 'West Bengal'%}selected{% endif %}>West Bengal</option>
+        </select>
+      </p></td>
+    </tr>
+    <tr>
+{#      <th scope="row">Contact info</th>#}
+{#      <td><label for="textarea"></label>#}
+{#      <textarea name="textarea3" id="textarea3" cols="45" rows="5">{{ data.email }}  {{ data.phone }} </textarea></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">License no.</th>#}
+{#      <td><label for="textfield"></label>#}
+{#      <input type="text" name="textfield11" value="{{ data.license_num }}" id="textfield11" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">License Issued State</th>#}
+{#      <td><label for="select2"></label>#}
+{#        <select name="select2" value="{{ data.state_issue }}" id="select2">#}
+{#        <option>Andhra Pradesh</option>#}
+{#        <option>Arunachal Pradesh</option>#}
+{#        <option>Assam</option>#}
+{#        <option>Bihar</option>#}
+{#        <option>Chhattisgarh</option>#}
+{#        <option>Goa</option>#}
+{#        <option>Gujarat</option>#}
+{#        <option>Haryana</option>#}
+{#        <option>Himachal Pradesh</option>#}
+{#        <option>Jharkhand</option>#}
+{#        <option>Karnataka</option>#}
+{#        <option>Kerala</option>#}
+{#        <option>Madhya Pradesh</option>#}
+{#        <option>Maharashtra</option>#}
+{#        <option>Manipur</option>#}
+{#        <option>Meghalaya</option>#}
+{#        <option>Mizoram</option>#}
+{#        <option>Nagaland</option>#}
+{#        <option>Odisha</option>#}
+{#        <option>Punjab</option>#}
+{#        <option>Rajasthan</option>#}
+{#        <option>Sikkim</option>#}
+{#        <option>Tamil Nadu</option>#}
+{#        <option>Telangana</option>#}
+{#        <option>Tripura</option>#}
+{#        <option>Uttar Pradesh</option>#}
+{#        <option>Uttarakhand</option>#}
+{#        <option>West Bengal</option>#}
+{#      </select></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Insurance</th>#}
+{#      <td> <label>#}
+{#          <input type="radio" name="RadioGroup2" {% if data.insurance_info == 'Yes' %} checked{% endif %}  value="Yes" id="RadioGroup2_0" />#}
+{#          Yes#}
+{#        </label>#}
+{#        <br />#}
+{#        <label>#}
+{#          <input type="radio" name="RadioGroup2" {% if data.insurance_info == 'No' %} checked{% endif %} value="No" id="RadioGroup2_1" />#}
+{#          No#}
+{#        </label>#}
+{#        <br /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Work Exprience</th>#}
+{#      <td><label for="textarea4"></label>#}
+{#      <textarea name="textarea4" value="{{ data.work_exp }}" id="textarea4" cols="45" rows="5">{{ data.work_exp }}</textarea></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Area Of Expertise</th>#}
+{#      <td><label for="textarea3"></label>#}
+{#      <textarea name="textarea5" value="{{ data.area_expertise }}" id="textarea5" cols="45" rows="5">{{ data.area_expertise }}</textarea></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Referance</th>#}
+{#      <td><label for="textarea4"></label>#}
+{#      <textarea name="textarea6" value="{{ data.reference }}" id="textarea6" cols="45" rows="5">{{ data.reference }}</textarea></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Profile Image/Logo</th>#}
+      <td><label for="fileField2"></label>
+          <a href="{{ data.past_project }}"><img src="{{ data.profile }}" width="100" alt="image"/></a>
+          <br>
+      <input type="file" name="fileField2" value="{{ data.profile }}" id="fileField2" /></td>
+    </tr>
+    <tr align="center">
+      <th colspan="2" scope="row"><input class="btn btn-success" type="submit" name="button" id="button" value="Update" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}

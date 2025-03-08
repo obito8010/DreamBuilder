@@ -1,0 +1,141 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p class="text-white">Dealer </p>
+<form action="/dealer_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+     {% csrf_token %}
+  <table width="700" border="1" class="text-white">
+  <tr>
+    <th scope="row">Full Name</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th scope="row">D.O.B</th>
+    <td><label for="textfield2"></label>
+      <input type="date" name="textfield2" id="textfield2" /></td>
+  </tr>
+   <tr>
+      <th scope="row">Email</th>
+      <td><label for="textfield4"></label>
+      <input type="email" name="textfield3" id="textfield3" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><label for="textfield5"></label>
+      <input type="number" name="textfield4" id="textfield4" /></td>
+    </tr>
+  <tr>
+    <th scope="row">Business Name</th>
+    <td><label for="textfield3"></label>
+      <input type="text" name="textfield5" id="textfield5" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Type Of Business</th>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="Solo Partnership" id="RadioGroup1_0" checked />
+        Solo Partnership
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Partnership" id="RadioGroup1_1" />
+        Partnership
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Co-Operative" id="RadioGroup1_2" />
+        Co-Operative
+      </label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">Business Address</th>
+    <td><p>Building,Company
+        <label for="textarea2"></label>
+      <label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" />
+    </p>
+      <p>Landmark
+        <label for="textfield7"></label>
+        <input type="text" name="textfield7" id="textfield7" />
+      </p>
+      <p>Town/Street
+        <label for="textfield8"></label>
+        <input type="text" name="textfield8" id="textfield8" />
+      </p>
+      <p>Pincode
+        <label for="textfield9"></label>
+        <input type="text" name="textfield9" id="textfield9" />
+      </p>
+      <p>State
+      	<label for="select"></label>
+        <select name="select" id="select">
+          <option>Andhra Pradesh</option>
+          <option>Arunachal Pradesh</option>
+          <option>Assam</option>
+          <option>Bihar</option>
+          <option>Chhattisgarh</option>
+          <option>Goa</option>
+          <option>Gujarat</option>
+          <option>Haryana</option>
+          <option>Himachal Pradesh</option>
+          <option>Jharkhand</option>
+          <option>Karnataka</option>
+          <option>Kerala</option>
+          <option>Madhya Pradesh</option>
+          <option>Maharashtra</option>
+          <option>Manipur</option>
+          <option>Meghalaya</option>
+          <option>Mizoram</option>
+          <option>Nagaland</option>
+          <option>Odisha</option>
+          <option>Punjab</option>
+          <option>Rajasthan</option>
+          <option>Sikkim</option>
+          <option>Tamil Nadu</option>
+          <option>Telangana</option>
+          <option>Tripura</option>
+          <option>Uttar Pradesh</option>
+          <option>Uttarakhand</option>
+          <option>West Bengal</option>
+        </select>
+      </p>
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <th scope="row">Reference Client Detail</th>
+    <td><label for="textarea2"></label>
+      <textarea name="textarea2" id="textarea2" cols="45" rows="5"></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">Profile</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" required/></td>
+  </tr>
+   <tr>
+          <th scope="row">password</th>
+    <td>
+      <label for="textfield14"></label>
+      <input type="password" name="textfield10" id="textfield10" required pattern="[a-zA-Z0-9!@#\$%\^\&*_=+]{8,12}" title="eg:-Name@123"/>
+    </td>
+  </tr>
+  <tr align="center">
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Register" class="btn btn-success" /></th>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>
+
+{% endblock %}

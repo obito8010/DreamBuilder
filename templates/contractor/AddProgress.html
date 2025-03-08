@@ -1,0 +1,60 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/addprogress_post/{{ id }}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table width="200" border="1" class="text-white">
+  <tr>
+    <th scope="row">Phase</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="phase" id="textfield" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Percentage</th>
+    <td><label for="textfield4"></label>
+      <input type="text" name="textfield" id="textfield4" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Image Upload</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" required/></td>
+  </tr>
+{#  <tr>#}
+{#    <th scope="row">Document Upload</th>#}
+{#    <td><label for="fileField2"></label>#}
+{#      <input type="file" name="fileField2" id="fileField2" /></td>#}
+{#  </tr>#}
+  <tr>
+    <th scope="row">Discription</th>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">SDate</th>
+    <td><label for="textfield2"></label>
+      <input type="date" name="textfield2" id="textfield2" /></td>
+  </tr>
+  <tr>
+    <th scope="row">EDate</th>
+    <td><label for="textfield3"></label>
+      <input type="date" name="textfield3" id="textfield3" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Add" /></th>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>
+
+
+{% endblock %}

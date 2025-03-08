@@ -1,0 +1,79 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<form action="/delivery_address_post" method="post">
+        {% csrf_token %}
+    <table width="200" border="1" class="text-white">
+  <tr>
+    <th scope="row">Building</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="te" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Landmark</th>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">Town</th>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" /></td>
+  </tr>
+  <tr>
+    <th scope="row">State</th>
+    <td><label for="textfield3"></label>
+      <label for="select"></label>
+      <select name="select" id="select">
+          <option>Andhra Pradesh</option>
+          <option>Arunachal Pradesh</option>
+          <option>Assam</option>
+          <option>Bihar</option>
+          <option>Chhattisgarh</option>
+          <option>Goa</option>
+          <option>Gujarat</option>
+          <option>Haryana</option>
+          <option>Himachal Pradesh</option>
+          <option>Jharkhand</option>
+          <option>Karnataka</option>
+          <option>Kerala</option>
+          <option>Madhya Pradesh</option>
+          <option>Maharashtra</option>
+          <option>Manipur</option>
+          <option>Meghalaya</option>
+          <option>Mizoram</option>
+          <option>Nagaland</option>
+          <option>Odisha</option>
+          <option>Punjab</option>
+          <option>Rajasthan</option>
+          <option>Sikkim</option>
+          <option>Tamil Nadu</option>
+          <option>Telangana</option>
+          <option>Tripura</option>
+          <option>Uttar Pradesh</option>
+          <option>Uttarakhand</option>
+          <option>West Bengal</option>
+        </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Pincode</th>
+    <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Confirm Order" /></th>
+    </tr>
+</table>
+
+    </form>
+</body>
+</html>
+
+{% endblock %}

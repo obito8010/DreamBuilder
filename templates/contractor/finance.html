@@ -1,0 +1,58 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<form action="/finance_post/{{ ob.id }}" method="post">
+    {% csrf_token %}
+<table class="text-white table table-bordered">
+  <tr>
+    <th scope="col">S.No</th>
+    <th scope="col">Date</th>
+    <th scope="col">Discription</th>
+    <th scope="col">Income</th>
+    <th scope="col">Expense</th>
+  </tr>
+ {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td><label for="textfield"></label>
+      <input type="date" name="textfield11"  id="textfield" value="{{ i.date }}" /></td>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield12"  id="textfield2" value="{{ i.discription }}" /></td>
+    <td>
+      <input type="number" pattern="[0-9]" name="textfield13" min="0"  id="textfield3" value="{{ i.income }}" title="put atleast 0" /></td>
+    <td><label for="textfield5"></label>
+        <input type="text" name="textfield14"  id="textfield5" value="{{ i.expense }}" title="put atleast 0" /></td>
+    <td><a href="/update_finance/{{ i.id }}#section_4">Edit</a>
+
+    <br /><a href="/delete_finance/{{ i.id }}">Delete</a></td>
+  </tr>
+ {% endfor %}
+<tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td><label for="textfield"></label>
+      <input type="date" name="textfield" required id="textfield" /></td>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" required id="textfield2"/></td>
+    <td><label for="textfield3"></label>
+      <input type="number" name="textfield3" min="0" required placeholder="min value 0"  id="textfield3"/></td>
+    <td><label for="textfield3"></label>
+       <input type="number" name="textfield4" required placeholder="min value 0" id="textfield5"/></td>
+  </tr>
+
+  <tr>
+    <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total</b></td>
+    <td>{{ sum }}</td>
+    <td>{{ sume }}</td>
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Profit/Loss</b></td>
+    <td colspan="2">{{ simp }}</td>
+    </tr>
+  <tr>
+    <td colspan="5"><div align="center"><input type="submit" name="button" id="button" value="Submit" /></div> </td>
+    </tr>
+</table>
+
+</form>
+
+{% endblock %}

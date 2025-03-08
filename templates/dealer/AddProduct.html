@@ -1,0 +1,55 @@
+{% extends 'dealer/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="add_product_post" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table width="200" border="1">
+  <tr>
+    <th scope="row">Product Name</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Product Image</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Discription</th>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">Price</th>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Status</th>
+    <td><p>
+      <label class="text-white">
+        <input type="radio" name="RadioGroup1" value="free charge" id="RadioGroup1_0"  />
+        Free Delivery Charge</label>
+      <br />
+      <label class="text-white">
+        <input type="radio" name="RadioGroup1" value="extra charge" id="RadioGroup1_1" />
+        Extra Delivery Charge</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Add" /></th>
+  </tr>
+  </table>
+
+</form>
+</body>
+</html>
+{% endblock %}

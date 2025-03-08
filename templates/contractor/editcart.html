@@ -1,0 +1,43 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/edit_cart_post/{{ data.id }}" method="post">
+{% csrf_token %}
+<table width="200" border="1" class="text-white">
+{#    {% for i in data %}#}
+  <tr align="center">
+    <td colspan="3"><img src="{{ data.PRODUCT.pic }} " height="200px" width="200px"> </td>
+    </tr>
+  <tr>
+    <td colspan="3"><br/>{{ data.PRODUCT.discri }}</td>
+    </tr>
+  <tr>
+    <td><label for="textfield"></label>
+      <input type="number" name="textfield" value="{{ data.quantity }}" id="textfield" oninput="myfunction()" />
+      <input type="hidden" name="textfield11"  id="textfield11" value="{{ data.PRODUCT.price }}" oninput="myfunction()" /></td>
+    <td><br/><input type="text" id="result" readonly/> </td>
+    <td><br/><input type="submit" name="button" id="button" class="btn btn-success" value="Edit Cart" /></td>
+  </tr>
+{#    {% endfor %}#}
+</table>
+
+</form>
+</body>
+</html>
+<script type="text/javascript">
+  function myfunction(){
+      var v=document.getElementById('textfield').value;
+      var p=document.getElementById('textfield11').value;
+      var result=v * p;
+      document.getElementById('result').value = "RS :"+result; // Change innerHTML to value
+  }
+</script>
+{% endblock %}

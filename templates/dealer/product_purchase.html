@@ -1,0 +1,98 @@
+{% extends 'dealer/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<style>
+    .srch {
+  background-image: none;
+  position: relative;
+  overflow: hidden;
+  padding-top: 1px;
+  padding-bottom: 50px;
+}
+
+.srch .input-group {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-large);
+  padding: 10px 15px;
+}
+
+.srch .input-group-text {
+  background-color: transparent;
+  border: 0;
+}
+
+.srch input[type="search"] {
+  border: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.srch button[type="submit"] {
+  background-color: var(--primary-color);
+  border: 0;
+  border-radius: var(--border-radius-large) !important;
+  color: var(--white-color);
+  max-width: 150px;
+}
+
+</style>
+<body>
+    <section class="srch d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <form method="post" action="dealer_product_search#section_4" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                                {% csrf_token %}
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bi-search" id="basic-addon1">
+
+                                    </span>
+
+                                    <input name="keyword" type="search" class="form-control" id="keyword"  aria-label="Search">
+
+                                    <button type="submit" class="form-control">Search</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+<form id="form1" name="form1" method="get" action="">
+	<table width="800" border="1" class="text-white">
+        {% for i in data %}
+  <tr>
+    <td rowspan="4"><a href="{{ i.pic }}"><img src="{{ i.pic }}" height="200px" width="200px"></a> </td>
+    <td>{{ i.pname }}</td>
+      <td rowspan="4"><a href="/edit_product/{{ i.id }}#section_4" class=" btn btn-success">Edit</a> </td>
+      <td rowspan="4"><a href="/remove_product/{{ i.id }}#section_4" class=" btn btn-success">Delete</a> </td>
+  </tr>
+  <tr>
+    <td>RS {{ i.price }}</td>
+    </tr>
+  <tr>
+    <td>{{ i.name }}</td>
+    </tr>
+  <tr>
+    <td>{{ i.status }}</td>
+    </tr>
+
+        {% endfor %}
+    <tr>
+<td rowspan="4" ><a href="/add_product#section_4" class=" btn btn-success">Add New</a> </td>    </tr>
+</table>
+
+</form>
+</body>
+</html>
+
+
+{% endblock %}

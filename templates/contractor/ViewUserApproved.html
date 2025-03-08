@@ -1,0 +1,48 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<p>&nbsp;</p>
+<table width="770" border="1" class="text-white">
+  <tr>
+    <th width="70" scope="col">SLNO</th>
+    <th width="90" scope="col">CLIENT</th>
+        <th width="90" scope="col">DOB</th>
+    <th width="115" scope="col">CONTACT</th>
+    <th width="125" scope="col">ADDRESS</th>
+    <th width="161" scope="col">DISCRPTION</th>
+    <th width="161" scope="col">PROFILE</th>
+    <th width="169" scope="col">MANAGE</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.CLIENT.name }}</td>
+      <td>{{ i.CLIENT.dob }}</td>
+    <td>{{ i.CLIENT.phone }}<br/>{{ i.CLIENT.email }}</td>
+    <td>{{ i.CLIENT.building }}<br/>{{ i.CLIENT.landmark }}<br/>{{ i.CLIENT.town }}<br/>{{ i.CLIENT.pincode }}<br/>{{ i.CLIENT.state }}</td>
+    <td>{{ i.discription }}</td>
+     <td><a href="{{ i.CLIENT.profile }}"><img src="{{ i.CLIENT.profile }}" alt="" width="100" height="100"/></a> </td>
+    <td><a href="/chatt/{{ i.CLIENT.id }}#section_4">Chat</a>
+{#    <br /><a href="#">Document</a>#}
+    <br /><a href="/finance/{{ i.id }}#section_4">Finance</a>
+    <br /><a href="/vault/{{ i.CLIENT.id }}#section_4">Vault</a>
+    <br /><a href="/view_vault/{{ i.CLIENT.id }}#section_4">View Vault</a>
+    <br /><a href="/addprogress/{{ i.id }}#section_4">progress</a>
+    <br /><a href="/daily_report/{{ i.id }}#section_4">Daily Report</a>
+    <br /><a href="/view_daily_report/{{ i.id }}#section_4">View Daily Report</a>
+    <hr>
+  </tr>
+    {% endfor %}
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
+
+{% endblock %}

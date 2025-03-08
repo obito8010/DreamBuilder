@@ -1,0 +1,48 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>Update Plan</p>
+<form action="/update_plan_post/{{ data.id }}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<table width="70%" border="1" align="center" class="table text-white table-bordered" >
+  <tr>
+    <th width="181" scope="row">room count</th>
+    <td width="303"><label for="textfield"></label>
+      <label for="textfield2"></label>
+      <input type="text" name="textfield" value="{{ data.room_count }}" id="textfield2" /><br />      </td>
+  </tr>
+  <tr>
+    <th scope="row">bedroom count</th>
+    <th scope="row"><label for="textfield3"></label>
+      <input type="text" name="textfield2" value="{{ data.bedroom_count }}" id="textfield3" /></th>
+  </tr>
+  <tr>
+    <th scope="row">bathroom count</th>
+    <th scope="row"><label for="textfield4"></label>
+      <input type="text" name="textfield3" value="{{ data.bathroom_count }}" id="textfield4" /></th>
+  </tr>
+  <tr>
+    <th scope="row">Plan</th>
+    <th scope="row"><label for="fileField"></label>
+        <img src="{{ data.plan_image }} " width="800" height="700" alt="image not found"/>
+      <input type="file" name="fileField"  id="fileField" /></th>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Update" /></th>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>
+
+{% endblock %}

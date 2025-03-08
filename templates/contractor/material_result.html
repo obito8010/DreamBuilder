@@ -1,0 +1,20 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p><h3>For the masonry work, you will need approximately {{ bricks_needed }} bricks and {{ cement_bags_needed_for_masonry }} bags of cement.</h3></p>
+<p><h3>For the plastering work, you will need approximately {{ cement_bags_needed_for_plaster }} bags of cement.</h3></p>
+<p><h3>For the painting work, you will need approximately {{ paint_cans_needed }} cans of paint.</h3></p>
+<p><h3>For the lintel, you will need approximately {{ cement_needed_for_lintel }} cubic meters of cement, {{ sand_needed_for_lintel }} cubic meters of sand, {{ aggregate_needed_for_lintel }} cubic meters of aggregate, and {{ steel_needed_for_lintel }} cubic meters of steel.</h3></p>
+<p><h3>For the roof slab, you will need approximately {{ cement_needed_for_slab }} cubic meters of cement, {{ sand_needed_for_slab }} cubic meters of sand, {{ aggregate_needed_for_slab }} cubic meters of aggregate, and {{ steel_needed_for_slab }} cubic meters of steel.</h3></p>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/delivery_address#section_4" method="post">
+{% csrf_token %}
+{% if data %}
+	<table width="700" border="1" class="text-white">
+        {% for i in data %}
+  <tr>
+    <td width="230" rowspan="4"><img src="{{ i.pic }} " height="150px" width="150px" /></td>
+    <td width="368">{{ i.pname }}</td>
+    <td width="80" rowspan="4"><p><a href="/remove_cart/{{ i.id }}#section_4">Remove</a>
+     <a href="/edit_cart/{{ i.id }}#section_4">Edit</a></td>
+  </tr>
+  <tr>
+    <td>RS.{{ i.price }}</td>
+    </tr>
+  <tr>
+    <td>Qnty: {{ i.quantity }}</td>
+    </tr>
+  <tr>
+    <td>Total: RS.{{ i.qt }}</td>
+    </tr>
+        {% endfor %}
+
+
+  <tr>
+    <td>Total</td>
+    <td colspan="2">{{ sum }}</td>
+    </tr>
+{#  <tr>#}
+{#    <td colspan="3"><p>#}
+{#      <label>#}
+{#        <input type="radio" name="RadioGroup1" value="cod" id="RadioGroup1_0" />#}
+{#        Cash On Delivery</label>#}
+{#      <br />#}
+{#      <label>#}
+{#        <input type="radio" name="RadioGroup1" value="op" id="RadioGroup1_1" />#}
+{#        Online Payment</label>#}
+{#      <br />#}
+{#    </p></td>#}
+{#  </tr>#}
+  <tr>
+    <td colspan="3"> <input type="submit" name="button" id="button" value="Proceed" /></td>
+    </tr>
+    {% else %}
+    <td><img src="/static/plan/cart.jpeg" alt=""/></td>
+    {% endif %}
+</table>
+
+</form>
+</body>
+</html>
+
+{% endblock %}

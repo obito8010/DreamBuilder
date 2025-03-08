@@ -1,0 +1,22 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+<form method="post" action="">
+{% csrf_token %}
+    <h3>Floor {{ floor }} details</h3>
+<table border="1">
+    <tr>
+        <td>Width of vent in meters</td>
+        <td><input type="text" name="t2"/></td>
+    </tr>
+    <tr>
+        <td>Height of vent in meters</td>
+        <td><input type="text" name="t3"/></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="SUBMIT" />
+        </td>
+    </tr>
+</table>
+    </form>
+{% endblock %}

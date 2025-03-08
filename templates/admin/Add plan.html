@@ -1,0 +1,48 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p align="center" class="text-white">Add Plan</p>
+<form action="/add_plan_post" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<table width="500">
+  <tr>
+{#    <th scope="row">room count</th>#}
+    <td colspan="2"><label for="textfield"></label>
+      <label for="textfield2"></label>
+      <input type="number" class="form-control" placeholder="Room Count" name="textfield" id="textfield2" />      </td>
+  </tr>
+  <tr>
+{#    <th scope="row">bedroom count</th>#}
+    <td colspan="2"><label for="textfield3"></label>
+      <input type="number" class="form-control" placeholder="Bedroom count" name="textfield2" id="textfield3" /></td>
+  </tr>
+  <tr>
+{#    <th scope="row">bathroom count</th>#}
+    <td colspan="2"><label for="textfield4"></label>
+      <input type="number" class="form-control" placeholder="Bathroom count" name="textfield3" id="textfield4" /></td>
+  </tr>
+  <tr>
+{#    <th scope="row">plan</th>#}
+    <td colspan="2"><label for="fileField"></label>
+      <input type="file" class="form-control" placeholder="Bathroom count" name="fileField" id="fileField" /></th>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit"  name="button" id="button" value="add" /></th>
+    </tr>
+</table>
+<br/><br>
+</form>
+</body>
+</html>
+
+
+{% endblock %}

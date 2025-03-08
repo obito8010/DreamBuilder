@@ -1,0 +1,215 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+    <p align="center" class="text-white"><b>Contractor Registration</b></p>
+<form action="/contractor_post" method="post" enctype="multipart/form-data" name="form1">
+    {% csrf_token %}
+  <table width="625" border="1" align="center" class="text-white table-bordered" >
+
+    <tr>
+      <th width="178" scope="row">Personal name</th>
+      <td width="431"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required pattern="[A-Za-z]+" title="eg:-Adwaith"/></td>
+    </tr>
+    <tr>
+      <th scope="row">D.O.B</th>
+      <td><label for="textfield3"></label>
+      <input type="date" name="textfield3" id="textfield3" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td><label for="textfield4"></label>
+      <input type="email" name="textfield4" id="textfield4" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><label for="textfield5"></label>
+      <input type="tel" name="textfield5" id="textfield5" required pattern="[6789][0-9]{9}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Business name</th>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" required /></td>
+    </tr>
+    <tr>
+      <th scope="row">Type of business</th>
+      <td>      <p>
+        <label class="text-white">
+          <input type="radio" name="RadioGroup1" value="Solo propertiship" id="RadioGroup1_0" />
+          Solo propertiship
+        </label>
+        <br />
+        <label class="text-white">
+          <input type="radio" name="RadioGroup1" value="Partnership" id="RadioGroup1_1" />Partnership</label>
+        <br />
+        <label class="text-white">
+          <input type="radio" name="RadioGroup1" value="Co-Operation" id="RadioGroup1_2" />
+          Co-Operation
+        </label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <th scope="row">address</th>
+      <td><p class="text-white">Building,Company
+        <label for="textarea2" ></label>
+      <label for="textfield5"></label>
+      <input type="text" name="textfield7" id="textfield7" required/>
+    </p>
+      <p class="text-white">Landmark
+        <label for="textfield6"></label>
+        <input type="text" name="textfield8" id="textfield8" required/>
+      </p>
+      <p class="text-white">Town/Street
+        <label for="textfield4"></label>
+        <input type="text" name="textfield9" id="textfield9" required/>
+      </p>
+      <p class="text-white">Pincode
+        <label for="textfield7"></label>
+        <input type="text" name="textfield10" id="textfield10" required pattern="[6]{0-9}{5}"/>
+      </p>
+      <p class="text-white">State
+      	<label for="select"></label>
+        <select name="select" id="select">
+          <option>Andhra Pradesh</option>
+          <option>Arunachal Pradesh</option>
+          <option>Assam</option>
+          <option>Bihar</option>
+          <option>Chhattisgarh</option>
+          <option>Goa</option>
+          <option>Gujarat</option>
+          <option>Haryana</option>
+          <option>Himachal Pradesh</option>
+          <option>Jharkhand</option>
+          <option>Karnataka</option>
+          <option>Kerala</option>
+          <option>Madhya Pradesh</option>
+          <option>Maharashtra</option>
+          <option>Manipur</option>
+          <option>Meghalaya</option>
+          <option>Mizoram</option>
+          <option>Nagaland</option>
+          <option>Odisha</option>
+          <option>Punjab</option>
+          <option>Rajasthan</option>
+          <option>Sikkim</option>
+          <option>Tamil Nadu</option>
+          <option>Telangana</option>
+          <option>Tripura</option>
+          <option>Uttar Pradesh</option>
+          <option>Uttarakhand</option>
+          <option>West Bengal</option>
+        </select>
+      </p></td>
+    </tr>
+    <tr>
+      <th scope="row">Contact info</th>
+      <td><label for="textarea"></label>
+      <textarea name="textarea3" id="textarea3" cols="45" rows="5" required></textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">License no.</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield11" id="textfield11" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">License Issued State</th>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2">
+        <option>Andhra Pradesh</option>
+        <option>Arunachal Pradesh</option>
+        <option>Assam</option>
+        <option>Bihar</option>
+        <option>Chhattisgarh</option>
+        <option>Goa</option>
+        <option>Gujarat</option>
+        <option>Haryana</option>
+        <option>Himachal Pradesh</option>
+        <option>Jharkhand</option>
+        <option>Karnataka</option>
+        <option>Kerala</option>
+        <option>Madhya Pradesh</option>
+        <option>Maharashtra</option>
+        <option>Manipur</option>
+        <option>Meghalaya</option>
+        <option>Mizoram</option>
+        <option>Nagaland</option>
+        <option>Odisha</option>
+        <option>Punjab</option>
+        <option>Rajasthan</option>
+        <option>Sikkim</option>
+        <option>Tamil Nadu</option>
+        <option>Telangana</option>
+        <option>Tripura</option>
+        <option>Uttar Pradesh</option>
+        <option>Uttarakhand</option>
+        <option>West Bengal</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">Insurance</th>
+      <td> <label>
+          <input type="radio" name="RadioGroup2" value="Yes" id="RadioGroup2_0" />
+          Yes
+        </label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup2" value="No" id="RadioGroup2_1" />
+          No
+        </label>
+        <br /></td>
+    </tr>
+    <tr>
+      <th scope="row">Work Exprience</th>
+      <td><label for="textarea4"></label>
+      <textarea name="textarea4" id="textarea4" cols="45" rows="5" required ></textarea></td>
+    </tr>
+{#    <tr>#}
+{#      <th scope="row">Past Project</th>#}
+{#      <td><label for="fileField"></label>#}
+{#      <input type="file" name="fileField" id="fileField" /></td>#}
+{#    </tr>#}
+    <tr>
+      <th scope="row">Years Of Exprience</th>
+      <td><label for="textfield9"></label>
+      <input type="number" name="textfield13" id="textfield13" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Area Of Expertise</th>
+      <td><label for="textarea3"></label>
+      <textarea name="textarea5" id="textarea5" cols="45" rows="5" required></textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">Reference</th>
+      <td><label for="textarea4"></label>
+      <textarea name="textarea6" id="textarea6" cols="45" rows="5" required></textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">Profile Image/Logo</th>
+      <td><label for="fileField2"></label>
+      <input type="file" name="fileField2" id="fileField2" required/></td>
+    </tr>
+      <tr>
+          <th scope="row">password</th>
+        <td>
+          <label for="textfield14"></label>
+          <input type="password" name="textfield14" id="textfield14" required pattern="[a-zA-Z0-9!@#\$%\^\&*_=+]{8,12}" title="eg:-Name@123"/>
+        </td>
+  </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Register" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}

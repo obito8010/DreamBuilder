@@ -1,0 +1,42 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<br/><br/>
+<table width="80%" border="1" align="center" class="text-white">
+  <tr>
+    <th scope="col">SLNO</th>
+    <th scope="col">BUSINESS NAME</th>
+    <th scope="col">DEALER NAME</th>
+    <th scope="col">ADDRESS</th>
+    <th scope="col">CONTACT</th>
+    <th scope="col">PROFILE</th>
+      <th scope="col">APPROVE</th>
+      <th scope="col">REJECT</th>
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.business_name }}</td>
+    <td>{{ i.Dealer_name }}</td>
+    <td>{{ i.building }}<br>{{ i.landmark }}<br>{{ i.town }}<br>{{  i.pincode }}<br>{{ i.state }}</td>
+    <td>{{ i.email }}<br>{{ i.phone }}</td>
+     <td><a href="{{ i.profile }}"><img src="{{ i.profile }}" alt="" width="100" height="100"/></a> </td>
+      <td><a href="/approve_dealer/{{ i.LOGIN.id }}">APPROVE</a></td>
+      <td><a href="/dealer_reject/{{ i.LOGIN.id }}">REJECT</a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+<br/><br/>
+</body>
+</html>
+
+{% endblock %}

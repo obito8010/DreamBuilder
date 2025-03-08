@@ -1,0 +1,40 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body class="text-white">
+<form action="" method="get">
+	<table width="771" border="1">
+  <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Date</th>
+    <th scope="col">Discription</th>
+    <th scope="col">Labour no.</th>
+    <th scope="col">Time</th>
+    <th scope="col">Consumed</th>
+    <th scope="col">Manage</th>
+  </tr>
+        {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+    <td>&nbsp;{{ i.discription }}</td>
+    <td>{{ i.labour_num }}</td>
+    <td>{{ i.time }}</td>
+    <td>{{ i.consumed }}</td>
+    <td><a href="/update_daily_report/{{ i.id }}#section_4">Edit</a>
+    <br /><a href="/remove_daily_report/{{ i.id }}#section_4">Delete</a></td>
+  </tr>
+        {% endfor %}
+</table>
+</form>
+</body>
+</html>
+
+{% endblock %}

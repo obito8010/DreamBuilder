@@ -1,0 +1,48 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/contractor_order_manager_post" method="post">
+{% csrf_token %}
+	<table width="668" border="1" class="text-white">
+  <tr>
+    <th colspan="2" scope="col">From Date:</th>
+    <th scope="col"><label for="textfield"></label>
+      <input type="date" name="textfield" id="textfield" /></th>
+    <th scope="col">To Date:</th>
+    <th scope="col"><label for="textfield2"></label>
+      <input type="date" name="textfield2" id="textfield2" /></th>
+    <th scope="col"><input type="submit" name="button" id="button" value="Search" /></th>
+  </tr>
+  <tr>
+    <th width="56" scope="col">Slno</th>
+    <th width="59" scope="col">Date</th>
+    <th width="163" scope="col">Dealer Name</th>
+    <th width="110" scope="col">Status</th>
+    <th width="155" scope="col">Dealer contact</th>
+    <th width="102" scope="col">&nbsp;</th>
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.DEALER.Dealer_name }}</td>
+    <td>{{ i.status }}</td>
+    <td>{{ i.DEALER.phone }}<br/>{{ i.DEALER.email }}</td>
+    <td><a href="/more_order_status/{{ i.id }}#section_4">more..</a></td>
+  </tr>
+        {% endfor %}
+</table>
+
+</form>
+</body>
+</html>
+
+{% endblock %}

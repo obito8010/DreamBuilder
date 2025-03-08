@@ -1,0 +1,116 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+<form action="" method="post">
+<table id="t1" class="container" align="center" >
+  </table>
+    <p></p>
+
+    <table id="t3" align="center"></table>
+    <table id="t4"  align="center" class="container"></table><p></p>
+    <table id="t2" align="center">
+{#        <tr>#}
+{#            <td>#}
+{#        <input type="hidden" id="v"/></td>#}
+{#          <td><input type="hidden" id="h"/></td>#}
+{#          <td><input type="hidden" id="u" value="{{ u }}"/></td>#}
+{#        <th><input type="text" name="e" id="e" class="form-control" /></th>#}
+{#      <th><input type="button" name="chat" id="chat" value="chat" class="btn btn-warning"/></th>#}
+{#            </tr>#}
+        <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                    alt="avatar 3" style="width: 40px; height: 100%;">
+
+            <input type="hidden" id="v"/>
+            <input type="hidden" id="h"/>
+            <input type="hidden" id="u" value="{{ u }}"/>
+
+                  <input type="text" class="form-control form-control-lg"  name="e" id="e"
+                    placeholder="Type message">
+            <input type="button" name="chat" id="chat" value="chat" class="btn btn-warning"/>
+
+                  <a class="ms-1 text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
+                  <a class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>
+                  <a class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
+                </div>
+
+{#    </div>#}
+    </table>
+
+</form>
+
+<script type="text/javascript" src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        function abc() {
+            $.ajax({
+            url: '/chatrply',
+            type: 'post',
+            success: function (res) {
+                var rid=$("#u").val();
+                  a = res;
+                  b = a.status;
+                  if (b === "ok") {
+                      s = a.data
+                      d = a.id
+                      var len = s.length;
+                      $("#t4").text("");
+                        for (i = 0; i <= len; i++) {
+                            x = s[i];
+                            s_id = x.type;
+                            msg = x.chat;
+                            name=x.name;
+                            dtime=x.dtime;
+                            tname=x.tname;
+                            upic=x.upic;
+{#                            alert(msg)#}
+                            if (s_id === 'contractor') {
+
+{#                                $("#t4").append('<tr align="right"><td  ><span >' + msg + '</span></td> </tr>')#}
+                                $("#t4").append('<div class="d-flex flex-row justify-content-end mb-4 pt-1"><div><p class="small mb-1 text-muted">'+ dtime +' &nbsp;&nbsp; <font color="black">'+ tname +'</font></p></div></div>')
+                                $("#t4").append('<div  class=" d-flex flex-row justify-content-end mb-4 pt-1"><div><p class="small p-2 me-3 mb-3 text-white rounded-3 bg-warning">'+ msg +'</p></div><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp" alt="avatar 1" style="width: 45px; height: 100%;"></div>')
+
+                            }
+                            if (s_id === 'user') {
+
+{#                                $("#t4").append('<tr align="left" > <td class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;" ><span   class="small mb-0">' + msg + '</span></td></tr>')#}
+                                $("#t4").append('<div class="d-flex flex-row justify-content-start"> <div> <p class="small p-2 ms-3 mb-3 rounded-3" >'+ dtime +' &nbsp;&nbsp; <font color="black">'+ name +'</font></p> </div> </div>')
+                                $("#t4").append('<div class="d-flex flex-row justify-content-start"> <img src="'+upic+'"alt="avatar 1" style="width: 50px; height: 50px;border-radius: 50%;"> <div> <p class="small p-2 ms-3 mb-3 rounded-3" style="background-color: #f5f6f7;">'+ msg +'</p> </div> </div>')
+                            }
+
+                        }
+                    }
+
+            },
+
+            error: function (err) {
+                bb = jQuery.parseJSON(err)
+                alert("error")
+
+            }
+        });
+
+        }
+        aa=setInterval(abc,1000)
+    });
+
+$("#chat").click(function () {
+    var k = $("#h").val()
+    var d = $("#e").val()
+    $.ajax({
+        url: '/chatsnd/{{ u }}',
+        type: 'POST',
+        data: {n: k, m: d},
+        success: function (res) {
+
+            result = res.stattus
+
+        },
+        error: function (err) {
+            bb = jQuery.parseJSON(err)
+        }
+
+    });
+    $("#e").val("")
+});
+    </script>
+{% endblock %}

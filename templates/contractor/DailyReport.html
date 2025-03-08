@@ -1,0 +1,49 @@
+    {% extends 'contractor/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/daily_report_post/{{ id }}" method="post">
+    {% csrf_token %}
+	<table width="200" border="1" class="text-white">
+  <tr>
+    <th scope="row">Date</th>
+    <td><label for="textfield"></label>
+      <input type="date" name="textfield" id="textfield" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Discription</th>
+    <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+  </tr>
+  <tr>
+    <th scope="row">no. of labour</th>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Time</th>
+    <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">consumed</th>
+    <td><label for="textarea2"></label>
+      <textarea name="textarea2" id="textarea2" cols="45" rows="5" required></textarea></td>
+  </tr>
+    <tr align="center">
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></th>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>
+
+{% endblock %}

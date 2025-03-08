@@ -1,0 +1,38 @@
+{% extends 'contractor/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<form action="/update_finance_post/{{ data.id }}" method="post">
+        {% csrf_token %}
+    	<table width="200" border="1">
+  <tr>
+    <td>Date</td>
+    <td>Discription</td>
+    <td>Income</td>
+    <td>Expense</td>
+  </tr>
+  <tr>
+    <td><label for="textfield"></label>
+      <input type="date" name="textfield" value="{{ data.date }}" id="textfield" required /></td>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" value="{{ data.discription }}" id="textfield2" required/></td>
+    <td><label for="textfield3"></label>
+        <abbr title="put atleast 0" ><input type="number" pattern="[0-9]" name="textfield3" value="{{ data.income }}" id="textfield3" title="put atleast 0" required /></abbr></td>
+    <td><label for="textfield4"></label>
+      <input type="number" name="textfield4" value="{{ data.expense }}" id="textfield4" title="put atleast 0" required /></td>
+  </tr>
+            <td colspan="4"><input type="submit" name="button" id="button" value="Edit" /></td>
+    </tr>
+
+</table>
+
+    </form>
+</body>
+</html>
+{% endblock %}

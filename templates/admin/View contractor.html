@@ -1,0 +1,46 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+	<form action="" method="post">
+    <table width="80%" border="1" align="center" class="text-white table">
+  <tr>
+    <th width="65" scope="col">SLNO</th>
+    <th width="120" scope="col">BUSINESS NAME</th>
+    <th width="130" scope="col">CONTRACTOR NAME</th>
+    <th width="126" scope="col">ADDRESS</th>
+    <th width="139" scope="col">CONTACT</th>
+    <th width="199" scope="col">PROFILE</th>
+    <th width="199" scope="col">MANAGE</th>
+  </tr>
+        {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.business_name }}</td>
+    <td>{{ i.name }}</td>
+    <td>{{ i.building }}<br>{{ i.landmark }}<br>{{ i.town }}<br>{{  i.pincode }}<br>{{ i.state }}</td>
+    <td>{{ i.email }}<br>{{ i.phone }}</td>
+      <td><a href="{{ i.profile }}"><img src="{{ i.profile }}" alt="" width="100" height="100"/></a> </td>
+      {% if i.LOGIN.usertype == 'contractor' %}
+      <td><a href="/block_contractor/{{ i.LOGIN.id }}">BLOCK</a> </td>
+       {% else %}
+      <td><a href="/unblock_contractor/{{ i.LOGIN.id }}">UNBLOCK</a> </td>
+       {% endif %}
+  </tr>
+        {% endfor %}
+</table>
+
+</form>
+<br/><br>
+</body>
+</html>
+
+{% endblock %}
